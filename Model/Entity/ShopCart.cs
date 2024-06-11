@@ -12,7 +12,10 @@ namespace Model.Entity
         [Key]
         public int Id { get; set; }
         public int UserId { get; set; }
+        public int productid { get; set; }
+        public int quantiy {  get; set; }
+        public decimal total {  get; set; }
         public User User { get; set; }
-        public List<Product> Products { get; set; }
+        public Product Products { get; set; }
     }
 }

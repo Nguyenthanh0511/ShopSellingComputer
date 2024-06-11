@@ -50,6 +50,15 @@ namespace ServiceComputer.Model.DataModel
             modelBuilder.Entity<Order>().HasOne(c => c.User)
                 .WithMany(p => p.Orders)
                 .HasForeignKey(p => p.UserId);
+            //Shopcart
+            modelBuilder.Entity<ShopCart>().HasOne(c => c.Products)
+              .WithMany(p => p.ShopCarts)
+              .HasForeignKey(p => p.productid);
+
+            modelBuilder.Entity<ShopCart>().HasKey(p => new
+            {
+                p.Id,
+            });
         }
     }
 }

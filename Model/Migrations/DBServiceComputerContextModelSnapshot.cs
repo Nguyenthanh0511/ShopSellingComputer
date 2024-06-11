@@ -142,17 +142,12 @@ namespace ServiceComputer.Model.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int?>("ShopCartId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("VendorId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
-
-                    b.HasIndex("ShopCartId");
 
                     b.HasIndex("VendorId");
 
@@ -170,9 +165,17 @@ namespace ServiceComputer.Model.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
+                    b.Property<int>("productid")
+                        .HasColumnType("int");
+
+                    b.Property<int>("quantiy")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("UserId");
+
+                    b.HasIndex("productid");
 
                     b.ToTable("ShopCarts");
                 });
@@ -276,10 +279,6 @@ namespace ServiceComputer.Model.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Model.Entity.ShopCart", null)
-                        .WithMany("Products")
-                        .HasForeignKey("ShopCartId");
-
                     b.HasOne("Model.Entity.Vendor", "Vendor")
                         .WithMany("Products")
                         .HasForeignKey("VendorId");
@@ -296,6 +295,14 @@ namespace ServiceComputer.Model.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("Model.Entity.Product", "Products")
+                        .WithMany("ShopCarts")
+                        .HasForeignKey("productid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Products");
 
                     b.Navigation("User");
                 });
@@ -315,11 +322,8 @@ namespace ServiceComputer.Model.Migrations
                     b.Navigation("Images");
 
                     b.Navigation("OrderDetails");
-                });
 
-            modelBuilder.Entity("Model.Entity.ShopCart", b =>
-                {
-                    b.Navigation("Products");
+                    b.Navigation("ShopCarts");
                 });
 
             modelBuilder.Entity("Model.Entity.User", b =>

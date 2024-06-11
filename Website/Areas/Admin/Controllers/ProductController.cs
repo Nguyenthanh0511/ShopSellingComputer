@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Model.Entity;
+using ServiceComputer.Reponsive.Base;
 using ServiceComputer.Reponsive.IRepo;
 
 namespace ServiceComputer.Website.Areas.Admin.Controllers
@@ -7,8 +8,8 @@ namespace ServiceComputer.Website.Areas.Admin.Controllers
     [Area("Admin")]
     public class ProductController : Controller
     {
-        private readonly IProductRepo _repo;
-        public ProductController(IProductRepo repo)
+        private readonly IReponsive<Product> _repo;
+        public ProductController(IReponsive<Product> repo)
         {
             _repo = repo;
         }

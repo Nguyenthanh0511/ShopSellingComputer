@@ -27,5 +27,6 @@ namespace Model.Entity
         public Vendor Vendor { get; set; }
         public List<Image> Images { get; set; }
         public List<OrderDetail> OrderDetails { get; set; }
+        public List<ShopCart> ShopCarts { get; set; }
     }
 }

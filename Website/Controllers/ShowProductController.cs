@@ -1,12 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Model.Entity;
+using ServiceComputer.Reponsive.Base;
 using ServiceComputer.Reponsive.IRepo;
 
 namespace ServiceComputer.Website.Controllers
 {
     public class ShowProductController : Controller
     {
-        private readonly IProductRepo productRepo;
-        public ShowProductController(IProductRepo productRepo)
+        private readonly IReponsive<Product> productRepo;
+        public ShowProductController(IReponsive<Product> productRepo)
         {
             this.productRepo = productRepo;
         }

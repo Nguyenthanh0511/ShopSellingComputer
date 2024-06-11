@@ -9,8 +9,8 @@ namespace ServiceComputer.Website.Areas.Admin.Controllers
     [Area("Admin")]
     public class CategoryController : Controller
     {
-        private readonly ICategoryRepo _repo;
-        public  CategoryController (ICategoryRepo repo)
+        private readonly IReponsive<Category> _repo;
+        public  CategoryController (IReponsive<Category> repo)
         {
             _repo = repo;
         }

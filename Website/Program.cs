@@ -20,9 +20,13 @@ builder.Services.AddDbContext<DBServiceComputerContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 //Register service
-builder.Services.AddScoped<IProductRepo, ProductRepo>();
-builder.Services.AddScoped<ICategoryRepo,CategoryRepo>();
+//builder.Services.AddScoped<IProductRepo, ProductRepo>();
+//builder.Services.AddScoped<ICategoryRepo,CategoryRepo>();
 
+builder.Services.AddScoped<IReponsive<Product>, Reponsive<Product>>();
+builder.Services.AddScoped<IReponsive<Category>, Reponsive<Category>>();
+builder.Services.AddScoped<IShopCartRepo, ShopCartRepo>();
+builder.Services.AddScoped<IReponsive<User>, Reponsive<User>>();
 var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

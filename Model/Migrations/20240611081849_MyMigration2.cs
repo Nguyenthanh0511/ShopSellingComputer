@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ServiceComputer.Model.Migrations
 {
-    public partial class MyMigration1 : Migration
+    public partial class MyMigration2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -73,25 +73,6 @@ namespace ServiceComputer.Model.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ShopCarts",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ShopCarts", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_ShopCarts_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Products",
                 columns: table => new
                 {
@@ -102,8 +83,7 @@ namespace ServiceComputer.Model.Migrations
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CategoryId = table.Column<int>(type: "int", nullable: false),
-                    VendorId = table.Column<int>(type: "int", nullable: true),
-                    ShopCartId = table.Column<int>(type: "int", nullable: true)
+                    VendorId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -114,11 +94,6 @@ namespace ServiceComputer.Model.Migrations
                         principalTable: "categories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Products_ShopCarts_ShopCartId",
-                        column: x => x.ShopCartId,
-                        principalTable: "ShopCarts",
-                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Products_Vendors_VendorId",
                         column: x => x.VendorId,
@@ -174,6 +149,33 @@ namespace ServiceComputer.Model.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "ShopCarts",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    productid = table.Column<int>(type: "int", nullable: false),
+                    quantiy = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ShopCarts", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ShopCarts_Products_productid",
+                        column: x => x.productid,
+                        principalTable: "Products",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ShopCarts_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Images_ProductId",
                 table: "Images",
@@ -200,14 +202,14 @@ namespace ServiceComputer.Model.Migrations
                 column: "CategoryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Products_ShopCartId",
-                table: "Products",
-                column: "ShopCartId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Products_VendorId",
                 table: "Products",
                 column: "VendorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ShopCarts_productid",
+                table: "ShopCarts",
+                column: "productid");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ShopCarts_UserId",
@@ -224,22 +226,22 @@ namespace ServiceComputer.Model.Migrations
                 name: "OrderDetails");
 
             migrationBuilder.DropTable(
+                name: "ShopCarts");
+
+            migrationBuilder.DropTable(
                 name: "Orders");
 
             migrationBuilder.DropTable(
                 name: "Products");
 
             migrationBuilder.DropTable(
+                name: "Users");
+
+            migrationBuilder.DropTable(
                 name: "categories");
 
             migrationBuilder.DropTable(
-                name: "ShopCarts");
-
-            migrationBuilder.DropTable(
                 name: "Vendors");
-
-            migrationBuilder.DropTable(
-                name: "Users");
         }
     }
 }

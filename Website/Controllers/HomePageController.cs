@@ -1,12 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Model.Entity;
+using ServiceComputer.Reponsive.Base;
 using ServiceComputer.Reponsive.IRepo;
 
 namespace ServiceComputer.Website.Controllers
 {
     public class HomePageController : Controller 
     {
-        private readonly IProductRepo _repo;
-        public HomePageController(IProductRepo repo)
+        private readonly IReponsive<Product> _repo;
+        public HomePageController(IReponsive<Product> repo)
         {
             _repo = repo;
         }

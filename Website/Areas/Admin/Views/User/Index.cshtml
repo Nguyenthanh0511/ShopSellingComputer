@@ -1,0 +1,22 @@
+﻿@model List<Model.Entity.User>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="container">
+    <div class="table">
+        <thead>
+            <th>Id</th>
+            <th>UserName</th>
+        </thead>
+        <tboby>
+            @foreach(var item in Model)
+            {
+            <td>@item.Id</td>
+            <td>@item.Username</td>
+            }
+        </tboby>
+    </div>
+</div>

@@ -103,6 +103,8 @@ namespace ServiceComputer.Model.DataModel
                             ProductId = 5
                         }
                     };
+                    await context.Images.AddRangeAsync(images);
+                    await context.SaveChangesAsync();
                 }
             }
         }

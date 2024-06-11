@@ -22,8 +22,8 @@ namespace ServiceComputer.Reponsive.Base
         {
             try
             {
-                _context.Set<T>().Add(entity);
-                _context.SaveChangesAsync();
+                _context.Set<T>().AddAsync(entity);
+                await _context.SaveChangesAsync();
             }
             catch(Exception ex)
             {
