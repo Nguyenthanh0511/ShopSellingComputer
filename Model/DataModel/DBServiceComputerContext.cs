@@ -1,10 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Model.Entity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ServiceComputer.Model.DataModel
 {
@@ -14,6 +9,7 @@ namespace ServiceComputer.Model.DataModel
             : base(options)
         {
         }
+
         public DbSet<Category> categories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<User> Users { get; set; }
@@ -22,55 +18,38 @@ namespace ServiceComputer.Model.DataModel
         public DbSet<Vendor> Vendors { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //base.OnModelCreating(modelBuilder);
-            // Define relationships and constraints
+            base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Category>()
-                .HasMany(c => c.Products)
-                .WithOne(p => p.Category)
-                .HasForeignKey(p => p.CategoryId)
-                .OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<Product>().HasKey(p => new
+            {
+                p.Id,
+            });
 
-            modelBuilder.Entity<Product>()
-                .HasMany(p => p.Images)
-                .WithOne(i => i.Product)
-                .HasForeignKey(i => i.ProductId)
-                .OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<Product>().HasOne(c => c.Category)
+                .WithMany(p => p.Products)
+                .HasForeignKey(p => p.CategoryId);
 
-            modelBuilder.Entity<Product>()
-                .HasMany(p => p.OrderDetails)
-                .WithOne(od => od.Product)
-                .HasForeignKey(od => od.ProductId)
-                .OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<Image>().HasKey(I => new
+            {
+                I.Id,
+            });
 
-            modelBuilder.Entity<User>()
-                .HasMany(u => u.ShopCarts)
-                .WithOne(sc => sc.User)
-                .HasForeignKey(sc => sc.UserId)
-                .OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<Image>().HasOne(p => p.Product)
+                .WithMany(I => I.Images)
+                .HasForeignKey(IP => IP.ProductId);
+           
 
-            modelBuilder.Entity<User>()
-                .HasMany(u => u.Orders)
-                .WithOne(o => o.User)
-                .HasForeignKey(o => o.UserId)
-                .OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<Order>().HasKey(p => new
+            {
+                p.Id,
+            });
 
-            modelBuilder.Entity<Order>()
-                .HasMany(o => o.OrderDetails)
-                .WithOne(od => od.Order)
-                .HasForeignKey(od => od.OrderId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            modelBuilder.Entity<Vendor>()
-                .HasMany(v => v.Products)
-                .WithOne(p => p.Vendor)
-                .HasForeignKey(p => p.VendorId)
-                .OnDelete(DeleteBehavior.SetNull);
-
+            modelBuilder.Entity<Order>().HasOne(c => c.User)
+                .WithMany(p => p.Orders)
+                .HasForeignKey(p => p.UserId);
         }
     }
 }
-
-    

@@ -16,16 +16,14 @@ namespace Model.Entity
         [Required]
         [StringLength(200)]
         public string Name { get; set; }
-
         [Required]
         public string Description { get; set; }
-
         [Range(0.01, 10000)]
         public decimal Price { get; set; }
-
+        public string ImageUrl { get; set; }
         public int CategoryId { get; set; }
         public Category Category { get; set; }
-        public int VendorId {  get; set; }
+        public int? VendorId {  get; set; }
         public Vendor Vendor { get; set; }
         public List<Image> Images { get; set; }
         public List<OrderDetail> OrderDetails { get; set; }

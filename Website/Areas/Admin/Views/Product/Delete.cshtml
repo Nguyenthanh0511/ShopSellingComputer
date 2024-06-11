@@ -1,0 +1,39 @@
+﻿@model Model.Entity.Product
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Delete Product</h1>
+
+<form asp-area="Admin" asp-controller="Product" asp-action="Delete" method="post">
+    <div class="row mb-3">
+        <label asp-for="Id" class="col-sm-2 col-form-label">ID</label>
+        <div class="col-sm-10">
+            <input asp-for="Id" type="text" class="form-control" id="inputId" readonly />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label asp-for="Name" class="col-sm-2 col-form-label">Name</label>
+        <div class="col-sm-10">
+            <input asp-for="Name" type="text" class="form-control" id="inputName" readonly />
+        </div>
+    </div>
+    <div class="text-center">
+        <input asp-for="Id" type="hidden" />
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </div>
+</form>
+
+<div class="card mt-4">
+    <img src="@Model.ImageUrl" class="card-img-top" alt="@Model.Name">
+    <div class="card-img-overlay">
+        <h5 class="card-title">@Model.Name</h5>
+        <p class="card-text">@Model.Description</p>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

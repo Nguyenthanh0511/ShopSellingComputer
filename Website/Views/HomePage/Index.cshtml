@@ -1,0 +1,111 @@
+﻿@model List<Model.Entity.Product>
+
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Html.Partial("_banner")
+<!-- section -->
+<div class="section padding_layout_1">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="full">
+          <div class="main_heading text_align_center">
+            <h2>Why Choose Us</h2>
+            <p class="large">Fastest repair service with best price!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+        @foreach(var item in Model.Take(5))
+        {
+          <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+            <div class="full text_align_center margin_bottom_30">
+              <div class="center">
+                <div class="icon"> <img src="@item.ImageUrl" alt="#" /> </div>
+              </div>
+              <h4 class="theme_color">@item.Name</h4>
+              <p>Perspiciatis eos quos totam cum minima aut!</p>
+            </div>
+          </div>
+        }
+    </div>
+    <div class="row" style="margin-top: 35px">
+        <div class="col-md-8">
+            <div class="full margin_bottom_30">
+                <div class="accordion border_circle">
+                    <div class="bs-example">
+                        <div class="panel-group" id="accordion">
+                            @foreach(var item in Model.Take(5))
+                            {
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <p class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                                <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                                                Complete Recovery from Local & External Drive
+                                                <i class="fa fa-angle-down"></i>
+                                            </a>
+                                        </p>
+                                    </div>
+                                    <div id="collapseOne" class="panel-collapse collapse in">
+                                        <div class="panel-body">
+                                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="full" style="margin-top: 35px;">
+                <h3>Need file recovery?</h3>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.. </p>
+                <p><a class="btn main_bt" href="#">Read More</a></p>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+@* Product *@
+<div class="section padding_layout_1">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="full">
+                    <div class="main_heading text_align_center">
+                        <h2>Our Products</h2>
+                        <p class="large">Sản phẩm của chúng tôi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @foreach(var item in Model)
+            {
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
+                <div class="product_list">
+                    <div class="product_img"> <img class="img-responsive" src="@item.ImageUrl" alt=""> </div>
+                    <div class="product_detail_btm">
+                        <div class="center">
+                            <h4><a>@item.Name</a></h4>
+                        </div>
+                        <div class="starratin">
+                            <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>
+                        </div>
+                        <div class="product_price">
+                            <p><span class="old_price">@item.Price</span> – <span class="new_price">(@item.Price-10)</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</div>

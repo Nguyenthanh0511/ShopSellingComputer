@@ -1,0 +1,46 @@
+﻿@model List<Model.Entity.Category>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+@if (Model != null)
+{
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Category</h5>
+            <a href="/Admin/Category/Create" method="post" class="btn btn-danger">Add new</a>
+
+            <!-- Table with stripped rows -->
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr scope="row">
+                            <th>@item.Id</th>
+                            <td>@item.Name</td>
+                            <td>
+                                <a class="link-primary btn-sm"href="/Admin/Category/Update/@item.Id">Edit</a>
+                                <a class="link-primary btn-sm"href="/Admin/Category/Delete/@item.Id">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <!-- End Table with stripped rows -->
+
+        </div>
+    </div>
+}
+else
+{
+    <p>No categories found.</p>
+}

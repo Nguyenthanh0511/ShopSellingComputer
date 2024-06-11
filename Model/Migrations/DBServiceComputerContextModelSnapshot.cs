@@ -130,6 +130,10 @@ namespace ServiceComputer.Model.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(200)
@@ -141,7 +145,7 @@ namespace ServiceComputer.Model.Migrations
                     b.Property<int?>("ShopCartId")
                         .HasColumnType("int");
 
-                    b.Property<int>("VendorId")
+                    b.Property<int?>("VendorId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -278,9 +282,7 @@ namespace ServiceComputer.Model.Migrations
 
                     b.HasOne("Model.Entity.Vendor", "Vendor")
                         .WithMany("Products")
-                        .HasForeignKey("VendorId")
-                        .OnDelete(DeleteBehavior.SetNull)
-                        .IsRequired();
+                        .HasForeignKey("VendorId");
 
                     b.Navigation("Category");
 

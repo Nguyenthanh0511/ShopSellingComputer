@@ -1,0 +1,54 @@
+﻿@model List<Model.Entity.Product>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+@if (Model != null)
+{
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Category</h5>
+            <a href="/Admin/Product/Create" method="post" class="btn btn-danger">Add new</a>
+
+            <!-- Table with stripped rows -->
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Description</th>
+                        <th sope="col">ImageUrl</th>
+                        <th>Price</th>
+                        <th scope="col">CateogryId</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr scope="row">
+                            <th>@item.Id</th>
+                            <td>@item.Name</td>
+                            <td>@item.Description</td>
+                            <td>@item.ImageUrl</td>
+                            <td>@item.Price</td>
+                            <td>@item.CategoryId</td>
+                            <td>
+                                <a class="btn btn-primary btn-sm" href="/Admin/Product/Update/@item.Id">Edit</a>
+                                <a class="btn btn-danger btn-sm" href="/Admin/Product/Delete/@item.Id">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <!-- End Table with stripped rows -->
+
+        </div>
+    </div>
+}
+else
+{
+    <p>No categories found.</p>
+}

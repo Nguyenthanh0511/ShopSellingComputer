@@ -1,49 +1,292 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Website</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Website.styles.css" asp-append-version="true" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>It.Next - IT Service Responsive Html Theme</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- site icons -->
+    <link rel="icon" href="~/it-next/images/fevicon/fevicon.png" type="image/gif" />
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="~it-next/css/bootstrap.min.css" />
+    <!-- Site css -->
+    <link rel="stylesheet" href="~/it-next/css/style.css" />
+    <!-- responsive css -->
+    <link rel="stylesheet" href="~/it-next/css/responsive.css" />
+    <!-- colors css -->
+    <link rel="stylesheet" href="~/it-next/css/colors1.css" />
+    <!-- custom css -->
+    <link rel="stylesheet" href="~/it-next/css/custom.css" />
+    <!-- wow Animation css -->
+    <link rel="stylesheet" href="~/it-next/css/animate.css" />
+    <!-- revolution slider css -->
+    <link rel="stylesheet" type="text/css" href="~/it-next/revolution/css/settings.css" />
+    <link rel="stylesheet" type="text/css" href="~/it-next/revolution/css/layers.css" />
+    <link rel="stylesheet" type="text/css" href="~/it-next/revolution/css/navigation.css" />
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+
+
+
+     <link href="~/assets/img/favicon.png" rel="icon">
+    <link href="~/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/quill/quill.snow.css" rel="stylesheet">
+    <link href="~/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+    <link href="~/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="~/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+
+
+
+
 </head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Website</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+<body id="default_theme" class="it_service">
+    <!-- loader -->
+    <div class="bg_load">
+        <img class="loader_animation" src="~/it-next/images/loaders/loader_1.png" alt="#" />
+    </div>
+    <!-- end loader -->
+    <!-- header -->
+    <header id="default_header" class="header_style_1">
+        <!-- header top -->
+        <div class="header_top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="full">
+                            <div class="topbar-left">
+                                <ul class="list-inline">
+                                    <li>
+                                        <span class="topbar-label"><i class="fa fa-home"></i></span>
+                                        <span class="topbar-hightlight">Hà nội</span>
+                                    </li>
+                                    <li>
+                                        <span class="topbar-label"><i class="fa fa-envelope-o"></i></span>
+                                        <span class="topbar-hightlight"><a href="NguyenThanhPhong@gmail.com">info@yourdomain.com</a></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 right_section_header_top">
+                        <div class="float-left">
+                            <div class="social_icon">
+                                <ul class="list-inline">
+                                    <li><a class="fa fa-facebook" href="https://www.facebook.com/" title="Facebook" target="_blank"></a></li>
+                                    <li><a class="fa fa-google-plus" href="https://plus.google.com/" title="Google+" target="_blank"></a></li>
+                                    <li><a class="fa fa-twitter" href="https://twitter.com" title="Twitter" target="_blank"></a></li>
+                                    <li><a class="fa fa-linkedin" href="https://www.linkedin.com" title="LinkedIn" target="_blank"></a></li>
+                                    <li><a class="fa fa-instagram" href="https://www.instagram.com" title="Instagram" target="_blank"></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="float-right">
+                            <div class="make_appo">
+                                <a class="btn white_btn" href="make_appointment.html">Make Appointment</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </nav>
+        </div>
+        <!-- end header top -->
+        <!-- header bottom -->
+        <div class="header_bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                        <!-- logo start -->
+                        <div class="logo">
+                            <a href="it_home.html"><img style="height:50px;" src="~/it-next/images/logos/it_logo.png" alt="logo" /></a>
+                        </div>
+                        <!-- logo end -->
+                    </div>
+                    <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                        <!-- menu start -->
+                        <div class="menu_side">
+                            <div id="navbar_menu">
+                                <ul class="first-ul">
+                                    <li>
+                                        <a class="active" asp-controller="HomePage" asp-action="index">Home</a>
+                                        <ul>
+                                            <li><a >It Home Page</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a asp-controller="OtherPage" asp-action="About">About Us</a></li>
+                                    <li>
+                                        <a asp-controller="Blog" asp-action="index">Blog</a>
+                                        
+                                    </li>
+                                    <li>
+                                        <a asp-controller="ShowProduct" asp-action="index">ShowProduct</a>
+                                    </li>
+                                    <li>
+                                        <a >Shop</a>
+                                        <ul>
+                                            <li><a asp-controller="ShopCart" asp-action="index">Shop cart</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a>Account</a>
+                                        <ul>
+                                            <li><a class="active" asp-area="Admin" asp-controller="Category" asp-action="index">Admin</a></li>
+                                            <li><a class="active" asp-controller="HomePage" asp-action="index">User</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="search_icon">
+                                <ul>
+                                    <li><a href="#" data-toggle="modal" data-target="#search_bar"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- menu end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- header bottom end -->
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+    <!-- end header -->
+    <!-- section -->
+    <div id="slider" class="section main_slider">
+  <div class="container-fuild">
+    <div class="row">
+        @RenderBody()
     </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - Website - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>
+    </div>
+    <!-- End Model search bar -->
+    <!-- footer -->
+    <footer class="footer_style_2">
+        <div class="container-fuild">
+            <div class="row">
+                <div class="footer_blog">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="main-heading left_text">
+                                <h2>It Next Theme</h2>
+                            </div>
+                            <p>Tincidunt elit magnis nulla facilisis. Dolor sagittis maecenas. Sapien nunc amet ultrices, dolores sit ipsum velit purus aliquet, massa fringilla leo orci.</p>
+                            <ul class="social_icons">
+                                <li class="social-icon fb"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li class="social-icon tw"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li class
+="social-icon gp"><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="main-heading left_text">
+                                <h2>Additional links</h2>
+                            </div>
+                            <ul class="footer-menu">
+                                <li><a href="it_about.html"><i class="fa fa-angle-right"></i> About us</a></li>
+                                <li><a href="it_term_condition.html"><i class="fa fa-angle-right"></i> Terms and conditions</a></li>
+                                <li><a href="it_privacy_policy.html"><i class="fa fa-angle-right"></i> Privacy policy</a></li>
+                                <li><a href="it_news.html"><i class="fa fa-angle-right"></i> News</a></li>
+                                <li><a href="it_contact.html"><i class="fa fa-angle-right"></i> Contact us</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="main-heading left_text">
+                                <h2>Services</h2>
+                            </div>
+                            <ul class="footer-menu">
+                                <li><a href="it_data_recovery.html"><i class="fa fa-angle-right"></i> Data recovery</a></li>
+                                <li><a href="it_computer_repair.html"><i class="fa fa-angle-right"></i> Computer repair</a></li>
+                                <li><a href="it_mobile_service.html"><i class="fa fa-angle-right"></i> Mobile service</a></li>
+                                <li><a href="it_network_solution.html"><i class="fa fa-angle-right"></i> Network solutions</a></li>
+                                <li><a href="it_techn_support.html"><i class="fa fa-angle-right"></i> Technical support</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="main-heading left_text">
+                                <h2>Contact us</h2>
+                            </div>
+                            <p>123 Second Street Fifth Avenue,<br>
+                                Manhattan, New York<br>
+                                <span style="font-size:18px;"><a href="tel:+9876543210">+987 654 3210</a></span></p>
+                            <div class="footer_mail-section">
+                                <form>
+                                    <fieldset>
+                                        <div class="field">
+                                            <input placeholder="Email" type="text">
+                                            <button class="button_custom"><i class="fa fa-envelope" aria-hidden="true"></i></button>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cprt">
+                    <p>ItNext © Copyrights 2019 Design by html.design</p>
+                </div>
+            </div>
+        </div>
+        <div class="section padding_layout_1">
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+    <!-- end footer -->
+    <!-- js section -->
+    <script src="~/it-next/js/jquery.min.js"></script>
+    <script src="~/it-next/js/bootstrap.min.js"></script>
+    <!-- menu js -->
+    <script src="~/it-next/js/menumaker.js"></script>
+    <!-- wow animation -->
+    <script src="~/it-next/js/wow.js"></script>
+    <!-- custom js -->
+    <script src="~/it-next/js/custom.js"></script>
+    <!-- revolution js files -->
+    <script src="~/it-next/revolution/js/jquery.themepunch.tools.min.js"></script>
+    <script src="~/it-next/revolution/js/jquery.themepunch.revolution.min.js"></script>
+    <script src="~/it-next/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+    <script src="~/it-next/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
+    <script src="~/it-next/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+    <script src="~/it-next/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script src="~/it-next/revolution/js/extensions/revolution.extension.migration.min.js"></script>
+    <script src="~/it-next/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+    <script src="~/it-next/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+    <script src="~/it-next/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <script src="~/it-next"></script>
+
+
+
+    <script src="~/assets/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/vendor/chart.js/chart.min.js"></script>
+    <script src="~/assets/vendor/echarts/echarts.min.js"></script>
+    <script src="~/assets/vendor/quill/quill.min.js"></script>
+    <script src="~/assets/vendor/simple-datatables/simple-datatables.js"></script>
+    <script src="~/assets/vendor/tinymce/tinymce.min.js"></script>
+    <script src="~/assets/vendor/php-email-form/validate.js"></script>
+
+
+
+    <!-- map js -->
+   
+    <!-- google map js -->
+    <!-- end google map js -->
 </body>
 </html>
