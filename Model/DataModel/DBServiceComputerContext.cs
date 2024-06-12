@@ -59,6 +59,9 @@ namespace ServiceComputer.Model.DataModel
             {
                 p.Id,
             });
+            modelBuilder.Entity<ShopCart>()
+           .Property(p => p.total)
+           .HasColumnType("decimal(18,2)");
         }
     }
 }

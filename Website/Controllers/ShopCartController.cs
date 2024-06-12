@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Model.Entity;
+using ServiceComputer.Model.DataModel;
 using ServiceComputer.Reponsive.Base;
 using ServiceComputer.Reponsive.IRepo;
 using ServiceComputer.Reponsive.Repo;
@@ -14,11 +16,13 @@ namespace ServiceComputer.Website.Controllers
         private readonly IShopCartRepo _shopcartRepo;
         private readonly IReponsive<Product> _productRepo;
         private readonly IReponsive<User> _userRepo;
-        public ShopCartController(IShopCartRepo shopcart, IReponsive<Product> product, IReponsive<User> user)
+        public readonly DBServiceComputerContext _context;
+        public ShopCartController(DBServiceComputerContext context, IShopCartRepo shopcart, IReponsive<Product> product, IReponsive<User> user)
         {
             _shopcartRepo = shopcart;
             _productRepo = product;
             _userRepo = user;
+            _context = context;
         }
         public async Task<IActionResult> Index()
         {
@@ -58,21 +62,41 @@ namespace ServiceComputer.Website.Controllers
             {
                 return View("Not find product id");
             }
+            try
+            {
             var product = await _productRepo.GetId(productid);
             var user = await _userRepo.GetId(userid);
-            if(product == null & user == null)
+            if(product == null || user == null)
             {
                 return View("Not find user and product");
             }
-            _shopcartRepo.AddToCart(user, product, quantity);
-            if(_shopcartRepo.checkStatus != false)
+            //_shopcartRepo.AddToCart(user, product, quantity);
+            var cart = await _context.ShopCarts.FirstOrDefaultAsync(x => x.UserId == userid && x.productid == productid);
+            if(cart == null)
             {
-                return RedirectToAction("Index");
+                cart = new ShopCart()
+                {
+                    UserId = user.Id,
+                    productid = product.Id,
+                    quantiy = quantity,
+                    total = product.Price
+                };
+                _context.ShopCarts.Add(cart);
             }
             else
             {
-                return BadRequest(_shopcartRepo.noticationErr);
+                cart.quantiy += quantity;
+                cart.total = cart.quantiy * product.Price;
+                _context.ShopCarts.Update(cart);
+            }
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
+            }
+            catch(Exception err)
+            {
+                return BadRequest(err.Message);
             }
         }
+            
     }
 }
