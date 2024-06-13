@@ -5,7 +5,6 @@
 @{
     Html.Partial("_BannerNagative");
 }
-
 <div class="section padding_layout_1 Shopping_cart_section">
     <div class="container">
         <div class="row">
@@ -37,7 +36,7 @@
                                             </div>
                                         </td>
                                         <td class="col-sm-1 col-md-1" style="text-align: center">
-                                        <input class="form-control" value="@Model.total" type="number" readonly>
+                                        <input class="form-control" value="@Model.quantity" type="number" readonly>
                                         </td>
                                         <td class="col-sm-1 col-md-1 text-center"><p class="price_table">$@product.Price</p></td>
                                         <td class="col-sm-1 col-md-1 text-center"><p class="price_table">$@(product.Price * Model.quantity)</p></td>

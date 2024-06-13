@@ -89,8 +89,8 @@ namespace ServiceComputer.Website.Controllers
                 cart.total = cart.quantiy * product.Price;
                 _context.ShopCarts.Update(cart);
             }
-            await _context.SaveChangesAsync();
-            return RedirectToAction("Index");
+                _context.SaveChangesAsync();
+                return RedirectToAction("Index");
             }
             catch(Exception err)
             {

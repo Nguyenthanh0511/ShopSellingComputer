@@ -12,7 +12,6 @@ namespace ServiceComputer.Website.Areas.Admin.Controllers
         {
             _userRepo = userRepo;
         }
-    
         public async Task<IActionResult> Index()
         {
             return View(await _userRepo.GetAll());
